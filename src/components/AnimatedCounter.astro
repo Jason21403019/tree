@@ -1,0 +1,127 @@
+---
+// AnimatedCounter.astro
+interface Props {
+  target: number
+  duration: number
+  prefix?: string
+  suffix?: string
+  decimals?: number
+}
+
+const {
+  target,
+  duration = 2000,
+  prefix = '',
+  suffix = '',
+  decimals = 0,
+} = Astro.props
+---
+
+<div class="counter-container">
+  <span class="counter-prefix">{prefix}</span>
+  <span
+    class="counter"
+    data-target={target}
+    data-duration={duration}
+    data-decimals={decimals}>0</span
+  >
+  <span class="counter-suffix">{suffix}</span>
+</div>
+
+<style>
+  .counter-container {
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #2563eb;
+    transition: all 0.3s ease;
+  }
+  .counter {
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+  }
+  .counter-container:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  class CounterAnimation {
+    element: HTMLElement
+    target: number
+    current = 0
+    duration: number
+    startTime: number | null = null
+    decimals: number
+    observer: IntersectionObserver
+    animationId: number | null = null
+    isAnimating = false
+
+    constructor(element: HTMLElement) {
+      this.element = element
+      this.target = Number(element.dataset.target || 0)
+      this.duration = Number(element.dataset.duration || 1500)
+      this.decimals = Number(element.dataset.decimals || 0)
+
+      this.observer = new IntersectionObserver(
+        this.handleIntersection.bind(this),
+        {
+          root: null,
+          threshold: 0.5,
+        }
+      )
+
+      this.observer.observe(this.element)
+    }
+
+    handleIntersection(entries: IntersectionObserverEntry[]): void {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.resetAnimation()
+          this.startAnimation()
+        }
+      })
+    }
+
+    resetAnimation(): void {
+      this.current = 0
+      this.updateDisplay()
+      this.isAnimating = false
+      this.startTime = null
+    }
+
+    startAnimation(): void {
+      if (this.isAnimating) return
+      this.isAnimating = true
+      this.animate()
+    }
+
+    animate(timestamp?: number): void {
+      if (!this.startTime) this.startTime = timestamp || performance.now()
+
+      const elapsed = (timestamp || performance.now()) - this.startTime
+      const progress = Math.min(elapsed / this.duration, 1)
+      const easedProgress = 1 - Math.pow(1 - progress, 3)
+
+      this.current = easedProgress * this.target
+      this.updateDisplay()
+
+      if (progress < 1) {
+        this.animationId = requestAnimationFrame(this.animate.bind(this))
+      } else {
+        this.current = this.target
+        this.updateDisplay()
+      }
+    }
+    updateDisplay(): void {
+      this.element.textContent = this.current.toFixed(this.decimals)
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.counter').forEach((counter) => {
+      new CounterAnimation(counter as HTMLElement)
+    })
+  })
+</script>
