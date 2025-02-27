@@ -1,13 +1,2 @@
-@import 'variable.scss';
+@import './variable';
 @import 'reset.scss';
-.number-flow-container {
-  // 添加您需要的容器樣式
-  padding: 20px;
-  text-align: center;
-
-  // 確保 number-flow 組件的樣式正確載入
-  .number-flow {
-    font-size: 24px;
-    color: #333;
-  }
-}

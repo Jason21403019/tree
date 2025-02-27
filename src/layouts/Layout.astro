@@ -9,6 +9,12 @@ import '../style/main.scss'
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/public/imgs/udn.ico" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gothic+A1&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Planttrees2025</title>
   </head>
   <body>
@@ -18,20 +24,23 @@ import '../style/main.scss'
   </body>
 </html>
 
-<style>
+<style lang="scss" is:global>
+  @import '../style/_variable.scss';
   html,
   body {
     margin: 0;
     padding: 0;
+    font-family: $font-noto;
     width: 100%;
-    min-width: 1920px;
-    border: 1px solid blue;
+    max-width: 1920px;
+    background: $webBGColor;
+    // border: 1px solid blue;
   }
   .content-container {
     max-width: 1765px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 </style>

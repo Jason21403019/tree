@@ -1,0 +1,25 @@
+//Color
+$mainColor: #1cbb9c;
+$mainColorLight: #b2e2d9;
+$pointColor: #dfe008;
+$whiteColor: #ffffff;
+$BGColor: #fffcee;
+$webBGColor: #f5f5f5;
+$fontColor: #000000;
+$articleColor: #666666;
+// Font
+$font-noto: 'Noto Sans TC', sans-serif;
+
+:root {
+  //Color
+  --mainColor: #{$mainColor};
+  --mainColorLight: #{$mainColorLight};
+  --pointColor: #{$pointColor};
+  --whiteColor: #{$whiteColor};
+  --BGColor: #{$BGColor};
+  --webBGColor: #{$webBGColor};
+  --fontColor: #{$fontColor};
+  --articleColor: #{$articleColor};
+  // Font
+  --font-noto: #{$font-noto};
+}

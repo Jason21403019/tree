@@ -9,7 +9,67 @@
         <img src="/public/imgs/LOGO.svg" alt="LOGO" class="nav__logo-img" />
       </a>
     </div>
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="/about" class="nav__link">永續承諾</a>
+      </li>
+      <li class="nav__item">
+        <a href="/services" class="nav__link">步步換樹</a>
+      </li>
+      <li class="nav__item">
+        <a href="/contact" class="nav__link">實踐行動</a>
+      </li>
+      <li class="nav__item">
+        <a href="/contact" class="nav__link">共好夥伴</a>
+      </li>
+    </ul>
   </nav>
 </header>
 
-<style></style>
+<style lang="scss">
+  @import '../style/_variable.scss';
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    background: $webBGColor;
+    // border: 1px solid green;
+  }
+  .nav {
+    height: 100%;
+    width: 100%;
+    max-width: 1765px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: absolute;
+
+    &__logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &__list {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+</style>
