@@ -1,0 +1,73 @@
+---
+
+---
+
+<section class="text-marquee" aos-data="fade-up" aos-duration="1500">
+  <div class="text-marquee__container">
+    <div class="text-marquee__content">
+      <div class="text-marquee__inner">
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+        <h2 class="text-marquee__title">Walk for trees</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../style/_variable.scss';
+  .text-marquee {
+    width: 99.5vw;
+    position: relative;
+    left: calc(50% - 50vw);
+    transform: translateX(0);
+    overflow: hidden;
+
+    &__container {
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__content {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    &__inner {
+      display: flex;
+      position: absolute;
+      white-space: nowrap;
+      will-change: transform;
+      // animation: marquee 65s linear infinite;
+    }
+
+    &__title {
+      font-size: 300px;
+      font-weight: bold;
+      padding: 0 2rem;
+      color: $mainColor;
+      line-height: 1;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+</style>

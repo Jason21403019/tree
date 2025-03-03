@@ -1,0 +1,56 @@
+---
+import AnimatedCounter from './AnimatedCounter.astro'
+---
+
+<section class="walkNumber">
+  <div class="walkNumber__container">
+    <div class="walkNumber__content">
+      <!-- <h2 class="walkNumber__title">
+        「與樹同行．走出一座健康森林」<br />
+        結合健走與植樹<br />
+        共創環境與人類健康雙贏
+      </h2> -->
+      <div class="number-item">
+        <AnimatedCounter
+          prefix="累積"
+          target={3000}
+          duration={2000}
+          suffix="+"
+        />
+        <p>參與人數</p>
+      </div>
+      <div class="number-item">
+        <AnimatedCounter target={7} duration={2000} suffix="步" />
+        <p>累積步數</p>
+      </div>
+      <!-- 可以根據需求添加更多數字項目 -->
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .walk-number {
+    &__container {
+      padding: 60px 0;
+      background-color: #f5f5f5;
+    }
+
+    &__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .number-item {
+      text-align: center;
+
+      p {
+        margin-top: 16px;
+        font-size: 18px;
+        color: #333;
+      }
+    }
+  }
+</style>

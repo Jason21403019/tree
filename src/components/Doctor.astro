@@ -1,0 +1,146 @@
+---
+
+---
+
+<section class="doctor">
+  <div class="doctor__container">
+    <div
+      class="doctor__card1 cards"
+      data-aos="fade-up"
+      data-aos-duration="1500">
+      <div
+        class="doctor__card1-img"
+        data-aos="fade-up"
+        data-aos-duration="1600">
+        <img src="/public/imgs/doctor1.png" alt="Doctor Image" />
+      </div>
+      <div
+        class="doctor__card1-content"
+        data-aos="fade-up"
+        data-aos-duration="1700">
+        <h2 class="doctor__card1-title">
+          與樹木共生<br />
+          我們不能失去樹木
+        </h2>
+        <p class="doctor__card1-text">
+          樹與我們共生，所以我們不能失去樹木，失去樹木就沒有所謂的生態，更沒有共生，我們也沒有辦法跟自然共榮。
+        </p>
+        <p class="doctor__card1-name">樹木醫生 ︱ 詹鳳春</p>
+      </div>
+    </div>
+    <div
+      class="doctor__card2 cards"
+      data-aos="fade-up"
+      data-aos-duration="1500">
+      <div
+        class="doctor__card2-img"
+        data-aos="fade-up"
+        data-aos-duration="1600">
+        <img src="/public/imgs/doctor2.png" alt="Doctor Image" />
+      </div>
+      <div
+        class="doctor__card2-content"
+        data-aos="fade-up"
+        data-aos-duration="1700">
+        <h2 class="doctor__card2-title">
+          享受運動<br />
+          每天7000步促進健康
+        </h2>
+        <p class="doctor__card2-text">
+          去享受運動，讓運動變成常態。每天走路7000步，達到健康促進的效果，再走更多便能享受體能進步的成效。
+        </p>
+        <p class="doctor__card2-name">運動醫學博士 ︱ 陳俊忠</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../style/_variable.scss';
+  .doctor {
+    width: 100%;
+    background-color: $BGColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__container {
+      padding: 96px 155px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 710px;
+      gap: 30px;
+      .cards {
+        display: flex;
+        padding: 30px;
+        background-color: $mainColor;
+        border-top-left-radius: 100px;
+        box-shadow: 4px 4px 1px rgba(0, 0, 0, 1);
+      }
+    }
+    &__card1 {
+      &-img {
+        margin-right: 30px;
+        img {
+          max-width: 218px;
+          max-height: 318px;
+          object-fit: contain;
+        }
+      }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $whiteColor;
+        text-align: justify;
+        line-height: 2.5rem;
+      }
+      &-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
+      &-text {
+        font-size: 20px;
+        font-weight: 400;
+        margin-top: 20px;
+      }
+      &-name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+    }
+    &__card2 {
+      &-img {
+        margin-right: 30px;
+        img {
+          max-width: 218px;
+          max-height: 318px;
+          object-fit: contain;
+        }
+      }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $whiteColor;
+        line-height: 2.5rem;
+        text-align: justify;
+      }
+      &-title {
+        font-size: 25px;
+        font-weight: 600;
+      }
+      &-text {
+        font-size: 20px;
+        font-weight: 400;
+        margin-top: 20px;
+      }
+      &-name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+    }
+  }
+</style>

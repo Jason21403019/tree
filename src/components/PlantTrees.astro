@@ -1,0 +1,68 @@
+---
+
+---
+
+<section class="plants">
+  <div class="plants__container">
+    <div class="plants__content">
+      <h2 class="plants__title">
+        讓日常每一步<br />
+        成為改變的力量
+      </h2>
+      <p>
+        聯合線上實踐聯合國永續發展目標SDG17「建立多元夥伴關係」，攜手高雄市愛種樹協會與健康促進平台Walkii，積極推動環境保護與職場健康，鼓勵上班族培養運動習慣，同時為地球盡一份心力。
+      </p>
+    </div>
+    <div class="plants__img">
+      <img src="/public/imgs/planttrees.png" alt="Plants Image" />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../style/_variable.scss';
+  .plants {
+    &__container {
+      background-color: $BGColor;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      max-width: 1765px;
+    }
+    &__content {
+      background-color: $mainColor;
+      border-top-left-radius: 100px;
+      height: 820px;
+      flex: 0 1 486px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: justify;
+      padding: 60px 83px;
+
+      h2 {
+        font-size: 25px;
+        color: $whiteColor;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 20px;
+        color: $fontColor;
+        line-height: 1.8;
+      }
+    }
+    &__img {
+      flex: 1;
+      border-top-left-radius: 100px;
+      height: 1026px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+</style>

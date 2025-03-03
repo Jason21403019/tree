@@ -1,5 +1,6 @@
 ---
 import '../style/main.scss'
+import AOSInit from '../components/AOSInit.astro'
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import '../style/main.scss'
   </head>
   <body>
     <div class="content-container">
+      <AOSInit />
       <slot />
     </div>
   </body>
@@ -26,6 +28,9 @@ import '../style/main.scss'
 
 <style lang="scss" is:global>
   @import '../style/_variable.scss';
+  * {
+    box-sizing: border-box;
+  }
   html,
   body {
     margin: 0;
@@ -34,13 +39,11 @@ import '../style/main.scss'
     width: 100%;
     max-width: 1920px;
     background: $webBGColor;
-    // border: 1px solid blue;
   }
   .content-container {
     max-width: 1765px;
     width: 100%;
     margin: 0 auto;
     padding: 0;
-    // border: 1px solid red;
   }
 </style>
