@@ -1,0 +1,136 @@
+---
+
+---
+
+<section class="actionInfo">
+  <div class="actionInfo__container">
+    <div class="actionInfo__container-time infos">
+      <h4>活動時間</h4>
+      <p>2025年4月29日（二）10:00-12:00</p>
+    </div>
+    <div class="actionInfo__container-location infos">
+      <h4>集合地點</h4>
+      <p>茄萣濕地遊客中心（高雄市茄萣區正順北路180號）</p>
+    </div>
+    <div class="actionInfo__container-trans infos">
+      <h4>交通方式</h4>
+      <h5>搭乘高鐵</h5>
+      <div class="actionInfo__container-trans-method">
+        <div class="method__item1">
+          <h3 class="method__item1-title1">高鐵</h3>
+          <p class="method__item1-content1">台南站</p>
+        </div>
+        <div class="method__item2">
+          <p class="method__item2-title2">轉乘計程車</p>
+          <p class="method__item2-content2">約30分鐘</p>
+        </div>
+        <div class="method__item3">
+          <p class="method__item3-title3">茄萣濕地遊客中心</p>
+        </div>
+      </div>
+    </div>
+    <div class="actionInfo__container-drive infos">
+      <h5>自行開車</h5>
+      <p>可停放茄萣濕地遊客中心旁停車場</p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import '../style/_variable.scss';
+  .actionInfo {
+    width: 100%;
+    background: $whiteColor;
+    padding-top: 64px;
+    padding-bottom: 154px;
+    &__container {
+      .infos {
+        h4 {
+          font-size: 25px;
+          font-weight: 700;
+          color: $fontColor;
+          margin-bottom: 12px;
+        }
+        p {
+          font-size: 20px;
+          color: $fontColor;
+        }
+        h5 {
+          font-size: 20px;
+          color: $fontColor;
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+      }
+      &-time {
+        margin-bottom: 36px;
+      }
+      &-location {
+        margin-bottom: 36px;
+      }
+      &-trans {
+        margin-bottom: 28px;
+        &-method {
+          display: flex;
+
+          .method__item1 {
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: $fontColor;
+            border-top-left-radius: 20px;
+            &-title1 {
+              font-size: 16px;
+              margin-bottom: 12px;
+              color: $whiteColor;
+            }
+            &-content1 {
+              font-size: 20px;
+              color: $whiteColor !important;
+            }
+          }
+          .method__item2 {
+            padding: 40px 80px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            align-items: center;
+            &::before {
+              position: absolute;
+              content: '';
+              top: 50%;
+              left: 50%;
+              height: 1px;
+              width: 100%;
+              transform: translateX(-50%);
+              background-color: $fontColor;
+            }
+            &-title2 {
+              font-size: 20px;
+              margin-bottom: 4px;
+            }
+            &-content2 {
+              font-size: 20px;
+              margin-top: 4px;
+            }
+          }
+          .method__item3 {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $fontColor;
+            border-top-left-radius: 20px;
+            &-title3 {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      &-drive {
+      }
+    }
+  }
+</style>

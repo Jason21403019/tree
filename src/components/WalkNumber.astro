@@ -5,51 +5,100 @@ import AnimatedCounter from './AnimatedCounter.astro'
 <section class="walkNumber">
   <div class="walkNumber__container">
     <div class="walkNumber__content">
-      <!-- <h2 class="walkNumber__title">
+      <h2 class="walkNumber__title" data-aos="flip-left">
         「與樹同行．走出一座健康森林」<br />
         結合健走與植樹<br />
         共創環境與人類健康雙贏
-      </h2> -->
-      <div class="number-item">
-        <AnimatedCounter
-          prefix="累積"
-          target={3000}
-          duration={2000}
-          suffix="+"
-        />
-        <p>參與人數</p>
+      </h2>
+
+      <div class="number__items">
+        <div class="number__item">
+          <p class="number__item-name" data-aos="fade-right">累計</p>
+          <AnimatedCounter target={100.5} duration={2000} decimals={1} />
+          <p class="number__item-name2" data-aos="fade-left">萬步</p>
+        </div>
+        <div class="number__item">
+          <p class="number__item-name" data-aos="fade-right">攜手種下</p>
+          <AnimatedCounter target={3000} duration={2000} decimals={0} />
+          <p class="number__item-name2" data-aos="fade-left">棵樹</p>
+        </div>
+        <div class="number__item">
+          <p class="number__item-name" data-aos="fade-right">響應企業</p>
+          <AnimatedCounter target={7} duration={2500} decimals={0} />
+          <p class="number__item-name2" data-aos="fade-left">家</p>
+        </div>
+        <div class="number__item">
+          <p class="number__item-name" data-aos="fade-right">超過</p>
+          <AnimatedCounter target={2000} duration={2000} decimals={0} />
+          <p class="number__item-name2" data-aos="fade-left">人參與</p>
+        </div>
       </div>
-      <div class="number-item">
-        <AnimatedCounter target={7} duration={2000} suffix="步" />
-        <p>累積步數</p>
-      </div>
-      <!-- 可以根據需求添加更多數字項目 -->
+    </div>
+    <div class="trees">
+      <img src="/public/imgs/trees.png" alt="Trees Image" />
     </div>
   </div>
 </section>
 
 <style lang="scss">
-  .walk-number {
+  @import '../style/_variable.scss';
+  .walkNumber {
     &__container {
-      padding: 60px 0;
-      background-color: #f5f5f5;
+      padding-top: 112px;
+      background-color: $BGColor;
     }
 
     &__content {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 80px;
+      h2 {
+        font-size: 30px;
+        color: $fontColor;
+        text-align: center;
+        margin-bottom: 53px;
+        line-height: 2;
+      }
+      .number__items {
+        display: flex;
+        gap: 54px;
+        margin-bottom: 154px;
+        .number__item {
+          width: 320px;
+          &-name {
+            position: relative;
+            font-size: 20px;
+            color: $fontColor;
+            padding-bottom: 16px;
+            padding-left: 16px;
+            border-bottom: 1px solid $fontColor;
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 6px;
+              height: 55%;
+              background-color: $pointColor;
+            }
+          }
+          &-name2 {
+            text-align: right;
+            margin-top: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            color: $fontColor;
+          }
+        }
+      }
     }
-
-    .number-item {
-      text-align: center;
-
-      p {
-        margin-top: 16px;
-        font-size: 18px;
-        color: #333;
+    .trees {
+      padding: 0 24px;
+      width: 100%;
+      img {
+        width: 100%;
       }
     }
   }

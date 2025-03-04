@@ -3,51 +3,35 @@
 interface Props {
   target: number
   duration: number
-  prefix?: string
-  suffix?: string
   decimals?: number
 }
 
-const {
-  target,
-  duration = 2000,
-  prefix = '',
-  suffix = '',
-  decimals = 0,
-} = Astro.props
+const { target, duration = 2000, decimals = 1 } = Astro.props
 ---
 
 <div class="counter-container">
-  <span class="counter-prefix">{prefix}</span>
   <span
     class="counter"
     data-target={target}
     data-duration={duration}
     data-decimals={decimals}>0</span
   >
-  <span class="counter-suffix">{suffix}</span>
 </div>
 
 <style lang="scss">
   @import '../style/_variable.scss';
   .counter-container {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    justify-content: end;
     font-weight: bold;
-    font-size: 2.5rem;
     color: #2563eb;
-    transition: all 0.3s ease;
   }
-  .counter-prefix {
-    &::before {
-    }
-  }
+
   .counter {
+    font-size: 100px;
+    text-align: right;
     font-feature-settings: 'tnum';
     font-variant-numeric: tabular-nums;
-  }
-  .counter-container:hover {
-    transform: scale(1.05);
   }
 </style>
 
