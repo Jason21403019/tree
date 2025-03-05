@@ -1,35 +1,20 @@
 ---
-
+import ActionTitle from './ActionTitle.astro'
 ---
 
 <section class="video">
   <div class="video__container">
-    <h1>項目標題</h1>
+    <ActionTitle title="項目標題" />
+    <div class="video__area">我是優土伯</div>
   </div>
-  <div class="video__area">我是優土伯</div>
 </section>
 
 <style lang="scss">
   @import '../style/_variable.scss';
   .video {
+    margin-bottom: 150px;
     &__container {
       width: 100%;
-      h1 {
-        font-size: 40px;
-        font-weight: 700;
-        color: $fontColor;
-        margin-bottom: 40px;
-        position: relative;
-        &::before {
-          content: '';
-          position: absolute;
-          top: -12px;
-          left: 0;
-          width: 40px;
-          height: 6px;
-          background-color: $pointColor;
-        }
-      }
     }
     &__area {
       width: 100%;
