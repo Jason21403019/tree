@@ -43,6 +43,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 1024px) {
+      min-height: 1060px;
+    }
   }
 
   .banner__contents {
@@ -53,43 +56,95 @@
     max-width: 1765px;
     padding-left: 156px;
     gap: 112px;
-    // border: 1px solid red;
+    @media screen and (max-width: 1440px) {
+      padding-left: 126px;
+      gap: 52px;
+    }
+    @media screen and (max-width: 1280px) {
+      padding-left: 96px;
+      gap: 0;
+    }
+    @media screen and (max-width: 1024px) {
+      padding-left: 0;
+      flex-direction: column;
+    }
+
     &-l {
       display: flex;
       flex-direction: column;
-      flex: 0 1 519px;
-      min-width: 300px;
+      align-self: end;
+      // border: 1px solid blue;
+
+      @media screen and (max-width: 1024px) {
+        align-self: center;
+        margin-bottom: -3%;
+      }
+      @media screen and (max-width: 768px) {
+        margin-left: 15%;
+      }
+      @media screen and (max-width: 640px) {
+        align-self: flex-end;
+      }
+      @media screen and (max-width: 460px) {
+        margin-left: 6%;
+      }
       .banner__title {
         margin-bottom: 20px;
+        @media screen and (max-width: 1024px) {
+          margin-bottom: -3%;
+        }
+        @media screen and (max-width: 390px) {
+          margin-bottom: -6%;
+        }
       }
       svg {
         width: 100%;
-        height: auto; 
-        max-width: 519px;
-        max-width: 100%;
+        @media screen and (max-width: 1440px) {
+          width: 80%;
+        }
+        @media screen and (max-width: 1280px) {
+          width: 75%;
+        }
+        @media screen and (max-width: 460px) {
+          width: 95%;
+        }
       }
       .banner__subtitle {
         display: flex;
         align-items: center;
-        flex-shrink: 0;
-        white-space: nowrap;
         &-text {
-          font-size: clamp(32px, 3vw, 48px);
-          color: var(--whiteColor);
+          font-size: clamp(28px, 3vw, 48px);
+          color: $whiteColor;
+          font-weight: 800;
+          font-family: 'Dela Gothic One' !important;
         }
         .banner__mouse {
           margin-left: 8px;
           margin-top: 4px;
+          @media screen and (max-width: 1024px) {
+            margin-top: 20px;
+            width: 30px;
+          }
         }
       }
     }
     &-r {
+      display: flex;
+      justify-content: flex-end;
       flex: 1;
-      aspect-ratio: 2.14 / 1;
       max-width: 894px;
+
+      // border: 1px solid red;
       .banner__img {
         width: 100%;
         object-fit: contain;
+        @media screen and (max-width: 1024px) {
+          margin-top: -3%;
+          width: 80%;
+        }
+        @media screen and (max-width: 460px) {
+          width: 90%;
+        }
       }
     }
   }

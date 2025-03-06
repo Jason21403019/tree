@@ -5,11 +5,11 @@
 <header class="header">
   <nav class="nav">
     <div class="nav__logo">
-      <a href="/" class="nav__logo-link">
+      <a href="/" class="nav__logo-img">
         <img src="/public/imgs/LOGO.svg" alt="LOGO" class="nav__logo-img" />
       </a>
     </div>
-    <ul class="nav__list">
+    <ul class="nav__list" id="nav-list">
       <li class="nav__item">
         <a href="/about" class="nav__link">永續承諾</a>
       </li>
@@ -23,8 +23,53 @@
         <a href="/contact" class="nav__link">共好夥伴</a>
       </li>
     </ul>
+    <div class="nav__hamburger" id="hamburger">
+      <span class="nav__hamburger-line"></span>
+      <span class="nav__hamburger-line"></span>
+      <span class="nav__hamburger-line"></span>
+    </div>
   </nav>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger')
+    const navList = document.getElementById('nav-list')
+
+    const navItems = navList?.querySelectorAll('.nav__item')
+
+    const toggleMenu = () => {
+      hamburger?.classList.toggle('active')
+      navList?.classList.toggle('active')
+      document.body.classList.toggle('no-scroll')
+    }
+
+    hamburger?.addEventListener('click', (event) => {
+      event.stopPropagation()
+      toggleMenu()
+    })
+
+    navList?.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement
+
+      if (target.tagName === 'A') {
+        toggleMenu()
+        return
+      }
+
+      let clickedOnItem = false
+      navItems?.forEach((item) => {
+        if (item === target || item.contains(target)) {
+          clickedOnItem = true
+        }
+      })
+
+      if (!clickedOnItem && target !== hamburger) {
+        toggleMenu()
+      }
+    })
+  })
+</script>
 
 <style lang="scss">
   @import '../style/_variable.scss';
@@ -47,13 +92,23 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    position: absolute;
+    position: relative;
 
     &__logo {
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
+      // border: 1px solid red;
+      @media screen and (max-width: 1780px) {
+        margin-left: 10px;
+      }
+
+      &-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &__list {
@@ -65,11 +120,103 @@
       justify-content: center;
       align-items: center;
       gap: 40px;
+
+      @media screen and (max-width: 1024px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transform: translateX(-100%);
+        transition:
+          transform 0.5s ease,
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        padding-top: 80px;
+
+        &.active {
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    &__item {
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+        text-align: center;
+      }
     }
 
     &__link {
+      width: 100%;
       text-decoration: none;
-      color: #000;
+      color: $fontColor;
+
+      @media screen and (max-width: 1024px) {
+        position: relative;
+        display: block;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 60px;
+          right: 60px;
+          bottom: -10px;
+          width: calc(100% - 120px);
+          height: 1px;
+          background-color: $fontColor;
+        }
+      }
+    }
+    &__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 18px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 1000;
+
+      @media screen and (max-width: 1024px) {
+        display: flex;
+      }
+
+      &-line {
+        display: block;
+        width: 28px;
+        height: 1px;
+        background-color: #000;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &.active {
+        .nav__hamburger-line {
+          &:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+          }
+        }
+      }
     }
   }
 </style>
