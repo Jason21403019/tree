@@ -32,6 +32,12 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
     text-align: right;
     font-feature-settings: 'tnum';
     font-variant-numeric: tabular-nums;
+    @media screen and (max-width: 1366px) {
+      font-size: 80px;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 80px;
+    }
   }
 </style>
 

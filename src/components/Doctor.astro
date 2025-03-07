@@ -72,57 +72,118 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      min-width: 710px;
       gap: 30px;
+      @media screen and (max-width: 1440px) {
+        padding: 66px 55px;
+        gap: 20px;
+      }
+      @media screen and (max-width: 768px) {
+        padding: 32px 24px;
+      }
+      @media screen and (max-width: 718px) {
+        flex-direction: column;
+      }
       .cards {
+        width: 99.9%;
         display: flex;
         padding: 30px;
         background-color: $mainColor;
         border-top-left-radius: 100px;
         box-shadow: 4px 4px 1px rgba(0, 0, 0, 1);
-      }
-    }
-    &__card1 {
-      &-img {
-        margin-right: 30px;
-        img {
-          max-width: 218px;
-          max-height: 318px;
-          object-fit: contain;
+        @media screen and (max-width: 1024px) {
+          border-top-left-radius: 170px;
+          flex-direction: column;
+          padding: 18px;
+        }
+        @media screen and (max-width: 992px) {
+          border-top-left-radius: 150px;
+        }
+        @media screen and (max-width: 768px) {
+          border-top-left-radius: 120px;
+        }
+        @media screen and (max-width: 718px) {
+          border-top-left-radius: 240px;
+        }
+        @media screen and (max-width: 640px) {
+          border-top-left-radius: 200px;
+        }
+        @media screen and (max-width: 480px) {
+          border-top-left-radius: 160px;
+        }
+        @media screen and (max-width: 414px) {
+          border-top-left-radius: 130px;
+        }
+        @media screen and (max-width: 360px) {
+          border-top-left-radius: 110px;
         }
       }
-      &-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: $whiteColor;
-        text-align: justify;
-        line-height: 2.5rem;
-      }
-      &-title {
-        font-size: 25px;
-        font-weight: 600;
-      }
-      &-text {
-        font-size: 20px;
-        font-weight: 400;
-        margin-top: 20px;
-      }
-      &-name {
-        font-size: 20px;
-        font-weight: 600;
-        margin-top: 20px;
-      }
     }
+    &__card1,
     &__card2 {
       &-img {
         margin-right: 30px;
+        width: 100%;
         img {
+          width: 100%;
           max-width: 218px;
-          max-height: 318px;
+          height: auto;
           object-fit: contain;
+          @media screen and (max-width: 1024px) {
+            max-width: 400px;
+            height: auto;
+          }
+          @media screen and (max-width: 850px) {
+            max-width: 370px;
+          }
+          @media screen and (max-width: 768px) {
+            max-width: 300px;
+          }
+          @media screen and (max-width: 718px) {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+        @media screen and (max-width: 1024px) {
+          margin-right: 0px;
+          width: 100%;
         }
       }
+      &-title {
+        font-size: 25px;
+        font-weight: 600;
+        @media screen and (max-width: 1024px) {
+          font-size: 20px;
+          margin-top: 40px;
+        }
+      }
+      &-text {
+        font-size: 20px;
+        font-weight: 400;
+        margin-top: 20px;
+        @media screen and (max-width: 1024px) {
+          font-size: 18px;
+        }
+      }
+      &-name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 20px;
+        @media screen and (max-width: 1024px) {
+          font-size: 16px;
+        }
+      }
+    }
+    &__card1 {
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $whiteColor;
+        text-align: justify;
+        line-height: 2.5rem;
+      }
+    }
+    &__card2 {
       &-content {
         display: flex;
         flex-direction: column;
@@ -130,20 +191,6 @@
         color: $whiteColor;
         line-height: 2.5rem;
         text-align: justify;
-      }
-      &-title {
-        font-size: 25px;
-        font-weight: 600;
-      }
-      &-text {
-        font-size: 20px;
-        font-weight: 400;
-        margin-top: 20px;
-      }
-      &-name {
-        font-size: 20px;
-        font-weight: 600;
-        margin-top: 20px;
       }
     }
   }

@@ -528,19 +528,21 @@
     </svg>
   </div>
   <div class="history__contents">
-    <div class="history__contents-text" style="visibility: hidden">
-      自2023年開始，聯合線上與永續夥伴前進台東池上、桃園銘傳大學、高雄茄萣濕地，串連企業、組織與地方，種下超過千棵樹木。<br
-      /><br /><br />
-
-      健康的森林，是多元物種成長的棲地。健康的身心，是我們賴以維生的基底。<br
-      /><br /><br />
-
-      今年4月，世界地球日55週年，聯合線上發起「與樹同行．走出一座健康森林」行動，結合植樹與健走，共創環境與人類健康的雙贏，為島嶼永續邁出穩健每一步。
+    <div class="history__contents-text" style="visibility: start;">
+      <p>
+        自2023年開始，聯合線上與永續夥伴前進台東池上、桃園銘傳大學、高雄茄萣濕地，串連企業、組織與地方，種下超過千棵樹木。
+      </p>
+      <p>
+        健康的森林，是多元物種成長的棲地。健康的身心，是我們賴以維生的基底。
+      </p>
+      <p>
+        今年4月，世界地球日55週年，聯合線上發起「與樹同行．走出一座健康森林」行動，結合植樹與健走，共創環境與人類健康的雙贏，為島嶼永續邁出穩健每一步。
+      </p>
     </div>
   </div>
 </section>
 
-<script>
+<!-- <script>
   import gsap from 'gsap'
   import { ScrollTrigger } from 'gsap/all'
 
@@ -590,7 +592,7 @@
       },
     })
   })
-</script>
+</script> -->
 
 <style lang="scss">
   @import '../style/_variable.scss';
@@ -602,22 +604,27 @@
       width: 100%;
       height: auto;
       aspect-ratio: 1766 / 586;
+      @media screen and (max-width: 1024px) {
+        aspect-ratio: 3 / 1.2; // 中等螢幕稍微增加高度
+      }
+
+      @media screen and (max-width: 768px) {
+        aspect-ratio: 2 / 1; // 平板尺寸更接近方形
+      }
+
+      @media screen and (max-width: 480px) {
+        aspect-ratio: 1.5 / 1; // 手機螢幕更接近方形但仍保持寬度大於高度
+      }
 
       svg {
         width: 100%;
         height: 100%;
 
         path {
-          fill: #ffffff;
+          fill: rgb(187, 216, 187);
           transition: fill 1s ease-in;
         }
       }
-
-      //   &.aos-animate {
-      //     svg path {
-      //       fill: $mainColorLight;
-      //     }
-      //   }
     }
     .history__contents {
       position: absolute;
@@ -627,19 +634,22 @@
       width: 100%;
       max-width: 750px;
       height: 100%;
-      aspect-ratio: 740 / 350;
+      aspect-ratio: 3 / 2;
       display: flex;
       justify-content: center;
       align-items: center;
 
       &-text {
         width: 100%;
-        max-height: 460px;
-        font-size: 20px;
+        // max-height: 460px;
+        font-size: clamp(18px, 2vw, 20px);
         line-height: 32px;
-        padding: 40px;
+        padding: clamp(20px, 3vw, 40px);
         color: $fontColor;
         background-color: $whiteColor;
+        & p:nth-child(2) {
+          margin: 64px 0;
+        }
       }
     }
   }
