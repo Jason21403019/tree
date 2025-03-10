@@ -39,6 +39,27 @@ import AOSInit from '../components/AOSInit.astro'
     width: 100%;
     max-width: 1920px;
     background: $webBGColor;
+    scroll-padding-top: 64px;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $pointColor;
+      border-radius: 50%;
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: $pointColor rgba(243, 236, 222, 0.3);
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    -ms-overflow-style: {
+      scrollbarfacecolor: $pointColor;
+      scrollbararrowcolor: transparent;
+    }
   }
   .content-container {
     max-width: 1765px;
