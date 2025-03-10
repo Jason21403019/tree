@@ -6,7 +6,11 @@ import ActionTitle from './ActionTitle.astro'
   <div class="partner__container">
     <ActionTitle title="項目標題" />
 
-    <div class="partner__container-area">
+    <div
+      class="partner__container-area"
+      data-aos="fade-up"
+      data-aos-duration="1200"
+      data-aos-delay="200">
       <div class="partner__container-area-item">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="/public/imgs/partner.svg" alt="" />
@@ -51,28 +55,23 @@ import ActionTitle from './ActionTitle.astro'
   .partner {
     width: 100%;
     margin-bottom: 228px;
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 80px;
+    }
+    @media screen and (max-width: 768px) {
+      margin-bottom: 50px;
+    }
     &__container {
-      h1 {
-        font-size: 40px;
-        font-weight: 700;
-        color: $fontColor;
-        margin-bottom: 40px;
-        position: relative;
-        &::before {
-          content: '';
-          position: absolute;
-          top: -12px;
-          left: 0;
-          width: 40px;
-          height: 6px;
-          background-color: $pointColor;
-        }
-      }
       &-area {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 40px;
+        @media screen and (max-width: 768px) {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+          gap: 20px;
+        }
 
         &-item {
           overflow: hidden;

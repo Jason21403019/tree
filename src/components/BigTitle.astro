@@ -15,14 +15,50 @@
 
   .bigTitle {
     width: 100%;
+
     &__container {
       width: 100%;
+      margin-bottom: -3%;
+      @media screen and (max-width: 992px) {
+        margin-bottom: -3.3%;
+      }
+      @media screen and (max-width: 480px) {
+        margin-bottom: -4.2%;
+      }
       h1 {
         font-size: 200px;
         font-weight: 700;
         color: $whiteColor;
         margin-block-start: 0;
         margin-block-end: 0;
+        i {
+          img {
+            @media screen and (max-width: 1280px) {
+              width: 90px;
+            }
+            @media screen and (max-width: 992px) {
+              width: 70px;
+            }
+            @media screen and (max-width: 480px) {
+              width: 50px;
+            }
+            @media screen and (max-width: 360px) {
+              width: 35px;
+            }
+          }
+        }
+        @media screen and (max-width: 1280px) {
+          font-size: 150px;
+        }
+        @media screen and (max-width: 992px) {
+          font-size: 120px;
+        }
+        @media screen and (max-width: 480px) {
+          font-size: 80px;
+        }
+        @media screen and (max-width: 360px) {
+          font-size: 60px;
+        }
       }
     }
   }
