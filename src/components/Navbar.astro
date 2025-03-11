@@ -35,7 +35,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger')
     const navList = document.getElementById('nav-list')
-
     const navItems = navList?.querySelectorAll('.nav__item')
 
     const toggleMenu = () => {
@@ -152,20 +151,22 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        transform: translateX(-100%);
+        transform: scale(0) rotate(-10deg);
+        transform-origin: top right;
         transition:
-          transform 0.5s ease,
-          opacity 0.5s ease,
-          visibility 0.5s ease;
+          transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.85s ease,
+          visibility 0.85s ease;
         z-index: 999;
         opacity: 0;
         visibility: hidden;
         padding-top: 80px;
 
         &.active {
-          transform: translateX(0);
+          transform: scale(1) rotate(0);
           opacity: 1;
           visibility: visible;
+          border-radius: 0;
         }
       }
     }
@@ -231,21 +232,30 @@
         width: 28px;
         height: 1px;
         background-color: #000;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.4s ease-in-out;
       }
 
       &.active {
+        transition: all 0.2s ease-in-out;
+        transition-delay: 0.6s;
+        transform: translateY(-50%) rotate(45deg);
+
         .nav__hamburger-line {
-          &:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+          &:nth-child(2) {
+            transform: scale(0);
           }
 
-          &:nth-child(2) {
-            opacity: 0;
+          &:nth-child(1),
+          &:nth-child(3) {
+            transition-delay: 0.3s;
+          }
+
+          &:nth-child(1) {
+            transform: translateY(8px);
           }
 
           &:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(90deg);
           }
         }
       }

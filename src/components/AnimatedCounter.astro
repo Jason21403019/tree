@@ -52,6 +52,7 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
     observer: IntersectionObserver
     animationId: number | null = null
     isAnimating = false
+    hasAnimated = false // 新增標記以追蹤動畫是否已執行
 
     constructor(element: HTMLElement) {
       this.element = element
@@ -72,9 +73,12 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
 
     handleIntersection(entries: IntersectionObserverEntry[]): void {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !this.hasAnimated) {
+          // 只有在尚未動畫時才啟動
           this.resetAnimation()
           this.startAnimation()
+          this.hasAnimated = true // 標記為已動畫
+          this.observer.unobserve(this.element) // 斷開觀察器連接，防止再次觸發
         }
       })
     }

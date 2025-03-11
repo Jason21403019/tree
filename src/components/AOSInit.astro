@@ -1,10 +1,12 @@
----
-import 'aos/dist/aos.css'
----
-
 <script>
   import AOS from 'aos'
+  import 'aos/dist/aos.css'
+
   document.addEventListener('DOMContentLoaded', () => {
-    AOS.init()
+    AOS.init({
+      disableMutationObserver: true,
+      delay: 0,
+      once: true,
+    })
   })
 </script>

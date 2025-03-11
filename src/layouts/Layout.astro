@@ -1,6 +1,7 @@
 ---
 import '../style/main.scss'
 import AOSInit from '../components/AOSInit.astro'
+import SmoothScroll from '../components/SmoothScroll.astro'
 ---
 
 <!doctype html>
@@ -16,10 +17,20 @@ import AOSInit from '../components/AOSInit.astro'
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gothic+A1&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script
+      nomodule
+      src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"
+      crossorigin="anonymous"></script>
+    <script
+      nomodule
+      src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
+      crossorigin="anonymous"></script>
+
     <title>Planttrees2025</title>
   </head>
   <body>
-    <div class="content-container">
+    <!-- <SmoothScroll /> -->
+    <div class="content-container" data-scroll id="scroll-zone">
       <AOSInit />
       <slot />
     </div>
@@ -40,26 +51,6 @@ import AOSInit from '../components/AOSInit.astro'
     max-width: 1920px;
     background: $webBGColor;
     scroll-padding-top: 64px;
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $pointColor;
-      border-radius: 50%;
-    }
-
-    scrollbar-width: thin;
-    scrollbar-color: $pointColor rgba(243, 236, 222, 0.3);
-
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
-
-    -ms-overflow-style: {
-      scrollbarfacecolor: $pointColor;
-      scrollbararrowcolor: transparent;
-    }
   }
   .content-container {
     max-width: 1765px;

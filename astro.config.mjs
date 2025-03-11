@@ -4,4 +4,12 @@ export default defineConfig({
   typescript: {
     strict: false,
   },
+  vite: {
+    ssr: {
+      noExternal: ['locomotive-scroll'],
+    },
+    optimizeDeps: {
+      include: ['locomotive-scroll'],
+    },
+  },
 })
