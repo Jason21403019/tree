@@ -1,7 +1,6 @@
 ---
-import '../style/main.scss'
+// import '../style/main.scss'
 import AOSInit from '../components/AOSInit.astro'
-import SmoothScroll from '../components/SmoothScroll.astro'
 ---
 
 <!doctype html>
@@ -9,7 +8,7 @@ import SmoothScroll from '../components/SmoothScroll.astro'
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/public/imgs/udn.ico" />
+    <link rel="icon" type="image/svg+xml" href="./imgs/udn.ico" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,20 +16,11 @@ import SmoothScroll from '../components/SmoothScroll.astro'
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gothic+A1&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script
-      nomodule
-      src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js"
-      crossorigin="anonymous"></script>
-    <script
-      nomodule
-      src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll"
-      crossorigin="anonymous"></script>
 
     <title>Planttrees2025</title>
   </head>
   <body>
-    <!-- <SmoothScroll /> -->
-    <div class="content-container" data-scroll id="scroll-zone">
+    <div class="content-container">
       <AOSInit />
       <slot />
     </div>
@@ -38,6 +28,7 @@ import SmoothScroll from '../components/SmoothScroll.astro'
 </html>
 
 <style lang="scss" is:global>
+  @import '../style/main.scss';
   @import '../style/_variable.scss';
   * {
     box-sizing: border-box;
@@ -51,6 +42,7 @@ import SmoothScroll from '../components/SmoothScroll.astro'
     max-width: 1920px;
     background: $webBGColor;
     scroll-padding-top: 64px;
+    scroll-behavior: smooth;
   }
   .content-container {
     max-width: 1765px;

@@ -16,10 +16,7 @@ const { title } = Astro.props
     color: $fontColor;
     margin-bottom: 40px;
     position: relative;
-    @media screen and (max-width: 1024px) {
-      margin-bottom: 24px;
-      font-size: 30px;
-    }
+
     &::before {
       content: '';
       position: absolute;
@@ -30,6 +27,14 @@ const { title } = Astro.props
       background-color: $pointColor;
       animation: lineAnimate 2s infinite;
     }
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 24px;
+      font-size: 30px;
+      &::before {
+        width: 30px;
+        animation: lineAnimateMobile 2s infinite;
+      }
+    }
   }
   @keyframes lineAnimate {
     0% {
@@ -38,6 +43,16 @@ const { title } = Astro.props
     }
     100% {
       width: 40px;
+      opacity: 1;
+    }
+  }
+  @keyframes lineAnimateMobile {
+    0% {
+      width: 0;
+      opacity: 0.7;
+    }
+    100% {
+      width: 30px;
       opacity: 1;
     }
   }

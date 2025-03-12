@@ -12,4 +12,13 @@ export default defineConfig({
       include: ['locomotive-scroll'],
     },
   },
+  base: '',
+  build: {
+    assetsPrefix: '.',
+    img: {
+      optimize: {
+        webp: true,
+      },
+    },
+  },
 })

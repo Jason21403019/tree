@@ -78,7 +78,7 @@ import AnimatedCounter from './AnimatedCounter.astro'
       </div>
     </div>
     <div class="trees">
-      <img src="/public/imgs/trees.png" alt="Trees Image" />
+      <img src="./imgs/trees.png" alt="Trees Image" />
     </div>
   </div>
 </section>
@@ -140,9 +140,9 @@ import AnimatedCounter from './AnimatedCounter.astro'
               content: '';
               position: absolute;
               left: 0;
-              top: 0;
+              top: 5px;
               width: 6px;
-              height: 55%;
+              height: 46%;
               background-color: $pointColor;
             }
           }
@@ -159,6 +159,9 @@ import AnimatedCounter from './AnimatedCounter.astro'
     .trees {
       padding: 0 24px;
       width: 100%;
+      @media screen and (max-width: 768px) {
+        padding: 0 4px;
+      }
       img {
         width: 100%;
       }
