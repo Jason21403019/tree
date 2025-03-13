@@ -42,7 +42,7 @@
       background-color: $mainColor;
       border-top-left-radius: 100px;
       height: 820px;
-      flex: 0 1 486px;
+      flex: 0 1 666px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -51,10 +51,10 @@
       padding: 60px 83px;
       @media screen and (max-width: 1440px) {
         padding: 60px 33px;
-        flex: 0 1 286px;
+        flex: 0 1 466px;
       }
       @media screen and (max-width: 1280px) {
-        padding: 120px 383px 180px;
+        padding: 120px 263px 180px;
       }
       @media screen and (max-width: 1110px) {
         padding: 120px 203px 180px;
@@ -87,14 +87,16 @@
       }
     }
     &__img {
-      flex: 1;
+      width: 100%;
       border-top-left-radius: 100px;
-      height: 1026px;
       overflow: hidden;
       background: $plantColor;
 
       @media screen and (max-width: 1280px) {
         margin-top: -10%;
+      }
+      @media screen and (max-width: 992px) {
+        height: 1024px;
       }
       @media screen and (max-width: 880px) {
         margin-top: -15%;
@@ -108,12 +110,18 @@
       }
       @media screen and (max-width: 390px) {
         margin-top: -52%;
+        height: 873px;
       }
       img {
         border-top-left-radius: 100px;
         width: 100%;
         height: 100%;
         object-fit: contain;
+        display: block;
+
+        @media screen and (max-width: 992px) {
+          object-fit: cover;
+        }
       }
     }
   }
