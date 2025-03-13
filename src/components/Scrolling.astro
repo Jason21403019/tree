@@ -1,0 +1,215 @@
+---
+// 這個組件只會在客戶端執行
+---
+
+<script>
+  {
+    // 數學工具函數
+    const MathUtils = {
+      // 將值x從範圍[a, b]映射到[c, d]
+      map: (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c,
+      // 線性插值
+      lerp: (a, b, n) => (1 - n) * a + n * b,
+    }
+
+    // body元素
+    const body = document.body
+
+    // 計算視口大小
+    let winsize
+    const calcWinsize = () =>
+      (winsize = { width: window.innerWidth, height: window.innerHeight })
+    calcWinsize()
+    // 視窗大小變化時重新計算
+    window.addEventListener('resize', calcWinsize)
+
+    // 滾動位置和更新函數
+    let docScroll
+    const getPageYScroll = () =>
+      (docScroll = window.pageYOffset || document.documentElement.scrollTop)
+    window.addEventListener('scroll', getPageYScroll)
+
+    // 平滑滾動類
+    class SmoothScroll {
+      private renderedStyles: any
+      private DOM: any
+      private navElement: any
+
+      constructor() {
+        // 主元素 - 改為使用 body
+        this.DOM = { main: document.querySelector('body') }
+        // 可滾動元素 - 直接找帶有 data-scroll 屬性的元素
+        this.DOM.scrollable = document.querySelector('div[data-scroll]')
+        this.navElement = this.DOM.scrollable.querySelector('nav, header')
+
+        // 定義滾動時要變化的屬性
+        this.renderedStyles = {
+          translationY: {
+            // 插值後的值
+            previous: 0,
+            // 當前值
+            current: 0,
+            // 插值量 - 降低這個值可以讓滾動更平滑
+            ease: 0.06,
+            // 當前值設定器
+            setValue: () => docScroll,
+          },
+        }
+
+        this.setSize()
+        this.update()
+        this.detachNavigation() // 新方法
+        this.style()
+        this.initEvents()
+        requestAnimationFrame(() => this.render())
+        this.setupAnchorLinks()
+      }
+
+      detachNavigation() {
+        if (!this.navElement) return
+
+        // 保存導航高度
+        this.navHeight = this.navElement.offsetHeight
+
+        // 創建一個固定定位的占位符
+        const placeholder = document.createElement('div')
+        placeholder.style.height = `${this.navHeight}px`
+        placeholder.style.width = '100%'
+
+        // 插入占位符到原始導航位置
+        this.navElement.parentNode.insertBefore(placeholder, this.navElement)
+
+        // 設置導航樣式
+        this.navElement.style.position = 'fixed'
+        this.navElement.style.top = '0'
+        this.navElement.style.left = '0'
+        this.navElement.style.right = '0'
+        this.navElement.style.maxWidth = '1765px'
+        this.navElement.style.margin = '0 auto'
+
+        // 將導航移至 body
+        document.body.appendChild(this.navElement)
+      }
+      setupAnchorLinks() {
+        // 找到所有錨點連結
+        const anchorLinks = document.querySelectorAll('a[href^="#"]')
+
+        anchorLinks.forEach((link) => {
+          link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href')
+            if (targetId === '#') return
+
+            e.preventDefault()
+
+            // 找到目標元素
+            const targetElement = document.querySelector(targetId)
+            if (targetElement) {
+              // 計算目標位置時考慮導航欄高度
+              const navHeight = this.navElement
+                ? this.navElement.offsetHeight
+                : 0
+              // 獲取目標元素相對於頂部的距離
+              const targetPosition =
+                targetElement.getBoundingClientRect().top +
+                window.scrollY -
+                navHeight
+
+              // 滾動到目標位置
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth',
+              })
+            }
+          })
+        })
+      }
+
+      update() {
+        // 設置初始值(無插值) - 轉換滾動值
+        for (const key in this.renderedStyles) {
+          this.renderedStyles[key].current = this.renderedStyles[key].previous =
+            this.renderedStyles[key].setValue()
+        }
+        // 轉換可滾動元素
+        this.layout()
+      }
+
+      layout() {
+        // 轉換可滾動元素
+        this.DOM.scrollable.style.transform = `translate3d(0,${-1 * this.renderedStyles.translationY.previous}px,0)`
+      }
+
+      setSize() {
+        // 設置body高度以保持頁面上的滾動條
+        body.style.height = `${this.DOM.scrollable.scrollHeight}px`
+      }
+
+      style() {
+        // 主元素需要"固定"到螢幕上而不滾動
+        this.DOM.scrollable.style.position = 'fixed'
+        this.DOM.scrollable.style.width = '100%'
+        this.DOM.scrollable.style.maxWidth = '1765px' // 從您的CSS中提取
+        this.DOM.scrollable.style.top = 0
+        this.DOM.scrollable.style.left = 0
+        this.DOM.scrollable.style.right = 0
+        this.DOM.scrollable.style.willChange = 'transform'
+      }
+
+      initEvents() {
+        // 視窗大小變化時重置body高度
+        window.addEventListener('resize', () => {
+          this.setSize()
+          this.update()
+        })
+
+        // 防抖滾動事件處理
+        let scrollTimeout
+        window.addEventListener('scroll', () => {
+          if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout)
+          }
+
+          scrollTimeout = window.requestAnimationFrame(() => {
+            getPageYScroll()
+          })
+        })
+
+        // DOM 變化監控，如果內容高度改變則更新高度
+        const resizeObserver = new ResizeObserver((entries) => {
+          this.setSize()
+        })
+
+        resizeObserver.observe(this.DOM.scrollable)
+      }
+
+      render() {
+        // 更新當前值和插值
+        for (const key in this.renderedStyles) {
+          this.renderedStyles[key].current = this.renderedStyles[key].setValue()
+          this.renderedStyles[key].previous = MathUtils.lerp(
+            this.renderedStyles[key].previous,
+            this.renderedStyles[key].current,
+            this.renderedStyles[key].ease
+          )
+        }
+
+        // 轉換可滾動元素，但保持導航不受影響
+        this.layout()
+
+        // 循環
+        requestAnimationFrame(() => this.render())
+      }
+    }
+
+    // 初始化平滑滾動
+    document.addEventListener('DOMContentLoaded', () => {
+      // 獲取滾動位置
+      getPageYScroll()
+
+      // 等待確保DOM和slot內容完全載入
+      setTimeout(() => {
+        new SmoothScroll()
+      }, 200)
+    })
+  }
+</script>

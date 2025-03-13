@@ -7,6 +7,7 @@ $BGColor: #fffcee;
 $webBGColor: #f5f5f5;
 $fontColor: #000000;
 $articleColor: #666666;
+$plantColor: #f5f5eb;
 // Font
 $font-noto: 'Noto Sans TC', sans-serif;
 
@@ -20,6 +21,7 @@ $font-noto: 'Noto Sans TC', sans-serif;
   --webBGColor: #{$webBGColor};
   --fontColor: #{$fontColor};
   --articleColor: #{$articleColor};
+  --plantColor: #{$plantColor};
   // Font
   --font-noto: #{$font-noto};
 }
