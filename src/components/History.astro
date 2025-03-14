@@ -607,15 +607,18 @@
       height: auto;
       aspect-ratio: 1766 / 586;
       @media screen and (max-width: 1280px) {
-        aspect-ratio: 3 / 1.8; // 更加極端的高度比例
+        aspect-ratio: 3 / 1.6;
       }
 
       @media screen and (max-width: 768px) {
-        aspect-ratio: 2 / 2; // 接近正方形，讓樹木圖案能大幅拉高
+        aspect-ratio: 2 / 2;
       }
 
       @media screen and (max-width: 480px) {
-        aspect-ratio: 1.5 / 2.5; // 垂直矩形，讓樹木填滿更高的空間
+        aspect-ratio: 1.5 / 2.1;
+      }
+      @media screen and (max-width: 390px) {
+        aspect-ratio: 1.5 / 2.4;
       }
 
       svg {
@@ -644,15 +647,18 @@
 
       &-text {
         width: 100%;
-        // max-height: 460px;
         font-size: clamp(18px, 2vw, 20px);
-        line-height: 1.65;
+        line-height: 33px;
         padding: clamp(20px, 3vw, 40px);
         color: $fontColor;
         background-color: $whiteColor;
         @media screen and (max-width: 1024px) {
           width: 80%;
         }
+        @media screen and (max-width: 360px) {
+          line-height: 28px;
+        }
+
         & p:nth-child(2) {
           margin: 64px 0;
           @media screen and (max-width: 1440px) {
@@ -661,11 +667,11 @@
           @media screen and (max-width: 1280px) {
             margin: 34px 0;
           }
-          @media screen and (max-width: 390px) {
-            margin: 44px 0;
+          @media screen and (max-width: 480px) {
+            margin: 10px 0;
           }
-          @media screen and (max-width: 360px) {
-            margin: 24px 0;
+          @media screen and (max-width: 480px) {
+            margin: 16px 0;
           }
         }
       }

@@ -9,7 +9,7 @@ import AnimatedCounter from './AnimatedCounter.astro'
         class="walkNumber__title"
         data-aos="flip-left"
         data-aos-duration="1500">
-        「與樹同行．走出一座健康森林」<br />
+        與樹同行．走出一座健康森林<br />
         結合健走與植樹<br />
         共創環境與人類健康雙贏
       </h2>
@@ -98,12 +98,18 @@ import AnimatedCounter from './AnimatedCounter.astro'
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
+      @media screen and (max-width: 480px) {
+        padding: 0 24px;
+      }
       h2 {
         font-size: 30px;
         color: $fontColor;
         text-align: center;
         margin-bottom: 53px;
         line-height: 2;
+        @media screen and (max-width: 480px) {
+          font-size: 20px;
+        }
       }
       .number__items {
         display: flex;
@@ -127,7 +133,7 @@ import AnimatedCounter from './AnimatedCounter.astro'
         .number__item {
           width: 320px;
           @media screen and (max-width: 1366px) {
-            width: 230px;
+            width: 260px;
           }
           &-name {
             position: relative;
@@ -159,11 +165,15 @@ import AnimatedCounter from './AnimatedCounter.astro'
     .trees {
       padding: 0 24px;
       width: 100%;
+      overflow: hidden;
       @media screen and (max-width: 768px) {
         padding: 0 4px;
       }
       img {
         width: 100%;
+        @media screen and (max-width: 480px) {
+          width: 236%;
+        }
       }
     }
   }

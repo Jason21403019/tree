@@ -1,0 +1,37 @@
+<!-- Begin Data Layer -->
+<script is:inline>
+  function getCookie(name) {
+    var value = '; ' + document.cookie
+    var parts = value.split('; ' + name + '=')
+    if (parts.length >= 2) return parts.pop().split(';').shift()
+  }
+
+  var _ga = getCookie('_ga') || ''
+  var _gaA = _ga.split('.')
+  var google_id = ''
+  for (i = 2; i < _gaA.length; i++) google_id = google_id + _gaA[i] + '.'
+  google_id = google_id.substring(0, google_id.length - 1)
+
+  var user_id = getCookie('udnland')
+  if (typeof user_id === 'undefined' || user_id == '') {
+    user_id = undefined
+    var auth_type = '未登入'
+  } else {
+    var auth_type = '已登入_會員'
+  }
+
+  dataLayer = [
+    {
+      user_id: user_id,
+      google_id: google_id,
+      cat: ['ubrand', '', '', '', ''],
+      content_tag: '',
+      auth_type: auth_type,
+      publication_date: '',
+      ffid: JSON.parse(localStorage.getItem('UDN_FID'))?.FFID,
+      dfid: JSON.parse(localStorage.getItem('UDN_FID'))?.DFID,
+    },
+  ]
+</script>
+<script src="https://p.udn.com.tw/upf/static/common/udn-fingerprint.umd.js?12"
+></script>

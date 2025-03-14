@@ -13,7 +13,7 @@
         data-aos="fade-up"
         data-aos-duration="1200"
         data-aos-delay="200">
-        <img src="./imgs/doctor1.png" alt="Doctor Image" />
+        <!-- <img src="./imgs/doctor1.png" alt="Doctor Image" /> -->
       </div>
       <div
         class="doctor__card1-content"
@@ -39,7 +39,7 @@
         data-aos="fade-up"
         data-aos-duration="1200"
         data-aos-delay="200">
-        <img src="./imgs/doctor2.png" alt="Doctor Image" />
+        <!-- <img src="./imgs/doctor2.png" alt="Doctor Image" /> -->
       </div>
       <div
         class="doctor__card2-content"
@@ -80,7 +80,7 @@
       @media screen and (max-width: 768px) {
         padding: 32px 24px;
       }
-      @media screen and (max-width: 718px) {
+      @media screen and (max-width: 640px) {
         flex-direction: column;
       }
       .cards {
@@ -91,106 +91,86 @@
         border-top-left-radius: 100px;
         box-shadow: 4px 4px 1px rgba(0, 0, 0, 1);
         @media screen and (max-width: 1024px) {
-          border-top-left-radius: 170px;
           flex-direction: column;
           padding: 18px;
-        }
-        @media screen and (max-width: 992px) {
-          border-top-left-radius: 150px;
-        }
-        @media screen and (max-width: 768px) {
-          border-top-left-radius: 120px;
-        }
-        @media screen and (max-width: 718px) {
-          border-top-left-radius: 240px;
-        }
-        @media screen and (max-width: 640px) {
-          border-top-left-radius: 200px;
-        }
-        @media screen and (max-width: 480px) {
-          border-top-left-radius: 150px;
-        }
-        @media screen and (max-width: 414px) {
-          border-top-left-radius: 130px;
-        }
-        @media screen and (max-width: 360px) {
-          border-top-left-radius: 110px;
         }
       }
     }
     &__card1,
     &__card2 {
-      &-img {
-        margin-right: 30px;
-        width: 100%;
-        img {
-          width: 100%;
-          max-width: 218px;
-          height: auto;
-          object-fit: contain;
-          @media screen and (max-width: 1024px) {
-            max-width: 400px;
-            height: auto;
-          }
-          @media screen and (max-width: 850px) {
-            max-width: 370px;
-          }
-          @media screen and (max-width: 768px) {
-            max-width: 300px;
-          }
-          @media screen and (max-width: 718px) {
-            width: 100%;
-            max-width: 100%;
-          }
-        }
-        @media screen and (max-width: 1024px) {
-          margin-right: 0px;
-          width: 100%;
-        }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $whiteColor;
+        text-align: justify;
+        line-height: 33px;
       }
       &-title {
         font-size: 25px;
         font-weight: 600;
-        @media screen and (max-width: 1024px) {
-          font-size: 20px;
-          margin-top: 40px;
+        margin-top: 40px;
+        @media screen and (max-width: 1280px) {
+          font-size: 23px;
+        }
+        @media screen and (min-width: 1025px) and (max-width: 1280px) {
+          margin-top: 0px;
         }
       }
       &-text {
         font-size: 20px;
         font-weight: 400;
-        margin-top: 20px;
-        @media screen and (max-width: 1024px) {
+        margin-top: 18px;
+        @media screen and (max-width: 1280px) {
           font-size: 18px;
         }
       }
       &-name {
         font-size: 20px;
         font-weight: 600;
-        margin-top: 20px;
+        margin-top: 18px;
+        @media screen and (max-width: 1280px) {
+          font-size: 18px;
+        }
+      }
+      &-img {
+        margin-right: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        min-width: 238px;
+        min-height: 379px;
+        height: auto;
+        border-top-left-radius: 70px;
         @media screen and (max-width: 1024px) {
-          font-size: 16px;
+          margin-right: 0px;
+          width: 100%;
+          border-top-left-radius: 90px;
+          min-height: 600px;
+        }
+        @media screen and (max-width: 900px) {
+          min-height: 500px;
+        }
+        @media screen and (max-width: 640px) {
+          background-position: center top;
+          min-height: 600px;
+        }
+        @media screen and (max-width: 480px) {
+          min-height: 500px;
+        }
+        @media screen and (max-width: 414px) {
+          min-height: 400px;
         }
       }
     }
     &__card1 {
-      &-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: $whiteColor;
-        text-align: justify;
-        line-height: 2.5rem;
+      &-img {
+        background-image: url('../../public/imgs/doctor1.png');
       }
     }
     &__card2 {
-      &-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: $whiteColor;
-        line-height: 2.5rem;
-        text-align: justify;
+      &-img {
+        background-image: url('../../public/imgs/doctor2.png');
       }
     }
   }

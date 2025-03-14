@@ -1,6 +1,11 @@
 ---
 import AOSInit from '../components/AOSInit.astro'
 import Scrolling from '../components/Scrolling.astro'
+import GTM from '../components/meta/GTM.astro'
+import Datalayer from '../components/meta/Datalayer.astro'
+import ComScoreTag from '../components/meta/ComScore_Tag.astro'
+import GTMNoscript from '../components/meta/GTM_noscript.astro'
+import GoogleFont from '../components/font/GoogleFont.astro'
 ---
 
 <!doctype html>
@@ -10,16 +15,14 @@ import Scrolling from '../components/Scrolling.astro'
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="./imgs/udn.ico" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gothic+A1&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-
+    <ComScoreTag />
+    <Datalayer />
+    <GTM />
+    <GoogleFont />
     <title>Planttrees2025</title>
   </head>
   <body>
+    <GTMNoscript />
     <div class="content-container" data-scroll>
       <AOSInit />
       <!-- <Scrolling /> -->
@@ -30,7 +33,6 @@ import Scrolling from '../components/Scrolling.astro'
 
 <style lang="scss" is:global>
   @import '../style/main.scss';
-  @import '../style/_variable.scss';
   * {
     box-sizing: border-box;
   }
