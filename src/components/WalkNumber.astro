@@ -89,6 +89,9 @@ import AnimatedCounter from './AnimatedCounter.astro'
     &__container {
       padding-top: 112px;
       background-color: $BGColor;
+      @media screen and (min-width: 1024px) {
+        padding: 112px 24px 0 24px;
+      }
     }
 
     &__content {
@@ -163,7 +166,6 @@ import AnimatedCounter from './AnimatedCounter.astro'
       }
     }
     .trees {
-      padding: 0 24px;
       width: 100%;
       overflow: hidden;
       @media screen and (max-width: 768px) {

@@ -23,9 +23,9 @@
     window.addEventListener('scroll', getPageYScroll)
 
     class SmoothScroll {
-      private renderedStyles: any
-      private DOM: any
-      private navElement: any
+      // private renderedStyles: any
+      // private DOM: any
+      // private navElement: any
 
       constructor() {
         this.DOM = { main: document.querySelector('body') }
@@ -70,6 +70,7 @@
 
         document.body.appendChild(this.navElement)
       }
+
       setupAnchorLinks() {
         const anchorLinks = document.querySelectorAll('a[href^="#"]')
 
