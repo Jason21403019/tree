@@ -12,7 +12,7 @@ const { title } = Astro.props
 
   h1 {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 600;
     color: $fontColor;
     margin-bottom: 40px;
     position: relative;
@@ -20,9 +20,9 @@ const { title } = Astro.props
     &::before {
       content: '';
       position: absolute;
-      top: -12px;
+      top: -6px;
       left: 0;
-      width: 37px;
+      width: 38px;
       height: 6px;
       background-color: $pointColor;
       animation: lineAnimate 2s infinite;
@@ -31,7 +31,7 @@ const { title } = Astro.props
       margin-bottom: 24px;
       font-size: 30px;
       &::before {
-        width: 27px;
+        width: 28px;
         animation: lineAnimateMobile 2s infinite;
       }
     }
@@ -42,7 +42,7 @@ const { title } = Astro.props
       opacity: 0.7;
     }
     100% {
-      width: 37px;
+      width: 38px;
       opacity: 1;
     }
   }
@@ -52,7 +52,7 @@ const { title } = Astro.props
       opacity: 0.7;
     }
     100% {
-      width: 27px;
+      width: 28px;
       opacity: 1;
     }
   }

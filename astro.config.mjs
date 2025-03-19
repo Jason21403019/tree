@@ -4,16 +4,11 @@ export default defineConfig({
   typescript: {
     strict: false,
   },
-  vite: {
-    ssr: {
-      noExternal: ['locomotive-scroll'],
-    },
-    optimizeDeps: {
-      include: ['locomotive-scroll'],
-    },
-  },
+
   base: '',
   build: {
+    format: 'file',
+    compressHTML: true,
     assetsPrefix: '.',
     img: {
       optimize: {

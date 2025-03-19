@@ -123,11 +123,16 @@
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 1765px !important;
     z-index: 999;
     height: 65px;
     display: flex;
     justify-content: center;
     background: $webBGColor;
+    @media screen and (min-width: 1279px) {
+      width: 92% !important;
+      max-width: 1765px;
+    }
   }
   .nav {
     height: 100%;
@@ -142,7 +147,7 @@
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      @media screen and (max-width: 1780px) {
+      @media screen and (max-width: 1278px) {
         margin-left: 10px;
       }
 
