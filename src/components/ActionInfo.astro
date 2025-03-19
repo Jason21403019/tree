@@ -53,12 +53,9 @@
   .actionInfo {
     width: 100%;
     background: $whiteColor;
-    padding-bottom: 154px;
-    @media screen and (max-width: 1024px) {
-      padding-bottom: 44px;
-    }
+    padding-bottom: 90px;
     @media screen and (max-width: 480px) {
-      padding-bottom: 84px;
+      padding-bottom: 0px;
     }
     &__container {
       .infos {
@@ -67,10 +64,16 @@
           font-weight: 600;
           color: $fontColor;
           margin-bottom: 12px;
+          @media screen and (max-width: 480px) {
+            font-size: 22px;
+          }
         }
         p {
           font-size: 20px;
           color: $fontColor;
+          @media screen and (max-width: 480px) {
+            font-size: 18px;
+          }
         }
         h5 {
           font-size: 20px;

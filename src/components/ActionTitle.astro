@@ -5,11 +5,16 @@ interface Props {
 const { title } = Astro.props
 ---
 
-<h1 data-aos="fade-up" data-aos-duration="1200">{title}</h1>
+<section class="actionTitle">
+  <h1 data-aos="fade-up" data-aos-duration="1200">{title}</h1>
+</section>
 
 <style lang="scss">
   @import '../style/_variable.scss';
 
+  .actionTitle {
+    padding-top: 64px;
+  }
   h1 {
     font-size: 40px;
     font-weight: 600;

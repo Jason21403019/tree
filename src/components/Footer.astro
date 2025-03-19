@@ -4,8 +4,34 @@
 
 <footer class="footer">
   <div class="footer__info">
+    <div class="footer__logos-container">
+      <a
+        href="https://udn.com/news/index"
+        class="footer__logos-logo"
+        target="_blank">
+        <img src="./imgs/footer_logo2.svg" alt="聯合新聞網" />
+      </a>
+      <a
+        href="https://udn.com/upf/newmedia/ubrandstudio/"
+        class="footer__logos-logo"
+        target="_blank">
+        <img src="./imgs/footer_logo1.svg" alt="倡議家" />
+      </a>
+      <a
+        href="https://www.iplanting.org/"
+        class="footer__logos-logo"
+        target="_blank">
+        <img src="./imgs/footer_logo4.png" alt="社團法人高雄市愛種樹協會" />
+      </a>
+      <a
+        href="https://www.walkii-health.com/"
+        class="footer__logos-logo"
+        target="_blank">
+        <img src="./imgs/footer_logo3.svg" alt="walkii" />
+      </a>
+    </div>
     <table class="footer__table">
-      <tr class="footer__table-row footer__table-row--logos">
+      <!-- <tr class="footer__table-row footer__table-row--logos">
         <td
           class="footer__table-cell footer__table-cell--right footer__table-cell--logo">
           <a
@@ -44,7 +70,7 @@
             <img src="./imgs/footer_logo4.svg" alt="社團法人高雄市愛種樹協會" />
           </a>
         </td>
-      </tr>
+      </tr> -->
       <tr class="footer__table-row">
         <td class="footer__table-cell footer__table-cell--right">製作人</td>
         <td class="footer__table-cell footer__table-cell--left"
@@ -106,6 +132,68 @@
     @media screen and (max-width: 1280px) {
       margin-bottom: 0px;
     }
+
+    &__logos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 900px;
+      // margin: 0 auto;
+      margin-bottom: 2rem;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media screen and (max-width: 870px) {
+        max-width: 600px;
+        gap: 0;
+        justify-content: space-evenly;
+        margin-bottom: 0rem;
+      }
+    }
+
+    &__logos-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+      img {
+        max-width: 100%;
+        max-height: 40px;
+        display: block;
+      }
+
+      @media screen and (max-width: 870px) {
+        width: calc(50% - 1.5rem);
+        margin-bottom: 1rem;
+
+        &:nth-child(odd) {
+          justify-content: flex-end;
+        }
+
+        &:nth-child(even) {
+          justify-content: flex-start;
+        }
+
+        img {
+          max-height: 50px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        margin-bottom: 1rem;
+        &:nth-child(odd) {
+          justify-content: center;
+          align-items: center;
+        }
+
+        &:nth-child(even) {
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
     &__table {
       width: 100%;
       max-width: 600px;
@@ -148,19 +236,6 @@
           &.footer__table-cell--left {
             text-align: left;
           }
-        }
-      }
-    }
-    &__logos {
-      &-logo1,
-      &-logo2,
-      &-logo3,
-      &-logo4 {
-        display: inline-block;
-
-        img {
-          max-width: 100%;
-          display: block;
         }
       }
     }

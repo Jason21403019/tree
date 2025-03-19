@@ -2,9 +2,9 @@
 import ActionTitle from './ActionTitle.astro'
 ---
 
-<section class="video">
+<section class="video" id="video">
   <div class="video__container">
-    <ActionTitle title="項目標題" />
+    <ActionTitle title="精彩回顧" />
     <div
       class="video__area"
       data-aos="fade-up"
@@ -29,8 +29,12 @@ import ActionTitle from './ActionTitle.astro'
     width: 100%;
     margin-bottom: 150px;
     @media screen and (max-width: 1024px) {
-      margin-bottom: 80px;
+      margin-bottom: 60px;
     }
+    @media screen and (max-width: 480px) {
+      margin-bottom: 40px;
+    }
+
     &__container {
       width: 100%;
     }
