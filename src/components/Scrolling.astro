@@ -61,7 +61,7 @@
         this.navElement.style.top = '0'
         this.navElement.style.left = '0'
         this.navElement.style.right = '0'
-        this.navElement.style.maxWidth = '1765px'
+        this.navElement.style.maxWidth = '93%'
         this.navElement.style.margin = '0 auto'
 
         document.body.appendChild(this.navElement)
@@ -113,17 +113,26 @@
 
       style() {
         this.DOM.scrollable.style.position = 'fixed'
-        this.DOM.scrollable.style.width = '100%'
-        this.DOM.scrollable.style.maxWidth = '1765px'
         this.DOM.scrollable.style.top = 0
         this.DOM.scrollable.style.left = 0
         this.DOM.scrollable.style.right = 0
+        this.DOM.scrollable.style.margin = '0 auto'
         this.DOM.scrollable.style.willChange = 'transform'
+      }
+      updateWidth() {
+        const windowWidth = window.innerWidth
+        if (windowWidth >= 1279 && windowWidth <= 1920) {
+          this.DOM.scrollable.style.width = '93%'
+        } else {
+          this.DOM.scrollable.style.width = '100%'
+        }
+        this.DOM.scrollable.style.maxWidth = '1765px'
       }
 
       initEvents() {
         window.addEventListener('resize', () => {
           this.setSize()
+          this.updateWidth()
           this.update()
         })
 

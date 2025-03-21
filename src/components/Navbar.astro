@@ -3,35 +3,42 @@
 ---
 
 <header class="header">
-  <nav class="nav">
-    <div class="nav__logo">
-      <a href="/" class="nav__logo-img">
-        <img src="./imgs/logo.svg" alt="LOGO" class="nav__logo-img" />
-      </a>
-    </div>
-    <ul class="nav__list" id="nav-list">
-      <li class="nav__item">
-        <a href="#promise" class="nav__link">永續承諾</a>
-      </li>
-      <li class="nav__item">
-        <a href="#plants" class="nav__link">步步換樹</a>
-      </li>
-      <li class="nav__item">
-        <a href="#action" class="nav__link">實踐行動</a>
-      </li>
-      <li class="nav__item">
-        <a href="#video" class="nav__link">精彩回顧</a>
-      </li>
-      <li class="nav__item">
-        <a href="#partners" class="nav__link">共好夥伴</a>
-      </li>
-    </ul>
-    <div class="nav__hamburger" id="hamburger">
-      <span class="nav__hamburger-line"></span>
-      <span class="nav__hamburger-line"></span>
-      <span class="nav__hamburger-line"></span>
-    </div>
-  </nav>
+  <div class="header__container">
+    <nav class="nav">
+      <div class="nav__logo">
+        <a href="/" class="nav__logo-img">
+          <img
+            src="./imgs/logo.svg"
+            alt="LOGO"
+            class="nav__logo-img"
+            width="178"
+          />
+        </a>
+      </div>
+      <ul class="nav__list" id="nav-list">
+        <li class="nav__item">
+          <a href="#promise" class="nav__link">永續承諾</a>
+        </li>
+        <li class="nav__item">
+          <a href="#plants" class="nav__link">步步換樹</a>
+        </li>
+        <li class="nav__item">
+          <a href="#action" class="nav__link">實踐行動</a>
+        </li>
+        <li class="nav__item">
+          <a href="#video" class="nav__link">精彩回顧</a>
+        </li>
+        <li class="nav__item">
+          <a href="#partners" class="nav__link">共好夥伴</a>
+        </li>
+      </ul>
+      <div class="nav__hamburger" id="hamburger">
+        <span class="nav__hamburger-line"></span>
+        <span class="nav__hamburger-line"></span>
+        <span class="nav__hamburger-line"></span>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <script>
@@ -68,7 +75,6 @@
     const toggleMenu = () => {
       hamburger?.classList.toggle('active')
       navList?.classList.toggle('active')
-      document.body.classList.toggle('no-scroll')
     }
 
     hamburger?.addEventListener('click', (event) => {
@@ -120,20 +126,26 @@
 </script>
 
 <style lang="scss">
-  @import '../style/_variable.scss';
+  @use '../style/_variable.scss' as *;
   .header {
+    // border: 1px solid red;
     position: sticky;
     top: 0;
     left: 0;
+    max-width: 1765px;
     width: 100%;
-    max-width: 1765px !important;
     z-index: 999;
     height: 65px;
     display: flex;
+    margin: 0 auto;
     justify-content: center;
     background: $webBGColor;
-    @media screen and (min-width: 1279px) {
-      width: 92% !important;
+    @media screen and (max-width: 1278px) {
+      max-width: 100% !important;
+    }
+
+    &__container {
+      width: 100%;
       max-width: 1765px;
     }
   }
@@ -144,19 +156,22 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    position: relative;
 
     &__logo {
       position: absolute;
       left: 0;
       top: 50%;
+      height: 100%;
       transform: translateY(-50%);
+
       @media screen and (max-width: 1278px) {
-        margin-left: 10px;
+        margin-left: 10px !important;
       }
 
       &-img {
         display: block;
-        width: 100%;
+        width: 178px;
         height: 100%;
       }
     }
@@ -170,7 +185,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
       @media screen and (max-width: 1024px) {
         position: fixed;
         top: 0;
@@ -207,6 +221,7 @@
       align-items: center;
       position: relative;
       transition: all 0.3s ease;
+      cursor: pointer;
 
       @media screen and (max-width: 1024px) {
         width: 100%;
@@ -224,8 +239,7 @@
           height: 20%;
         }
       }
-      &:nth-child(2),
-      &:nth-child(3) {
+      &:nth-child(even) {
         margin: 0 10px;
       }
     }
@@ -237,6 +251,9 @@
       text-decoration: none;
       font-size: 16px;
       color: $fontColor;
+      &.active {
+        color: $mainColor;
+      }
 
       @media screen and (max-width: 1024px) {
         display: flex;

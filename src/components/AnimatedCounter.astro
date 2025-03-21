@@ -19,7 +19,7 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
 </div>
 
 <style lang="scss">
-  @import '../style/_variable.scss';
+  @use '../style/_variable.scss' as *;
   .counter-container {
     display: flex;
     justify-content: end;

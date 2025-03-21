@@ -50,13 +50,13 @@ import GoogleFont from '../components/font/GoogleFont.astro'
 </html>
 
 <style lang="scss" is:global>
-  @import '../style/main.scss';
+  @use '../style/main.scss' as *;
   * {
     box-sizing: border-box;
   }
   html,
   body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     font-family: $font-noto;
     width: 100%;
@@ -67,11 +67,12 @@ import GoogleFont from '../components/font/GoogleFont.astro'
     overflow-x: hidden;
   }
   .content-container {
+    max-width: 1765px;
     width: 100%;
     margin: 0 auto;
-    padding: 0;
-    @media screen and (min-width: 1279px) {
-      width: 92% !important;
+
+    @media screen and (min-width: 1279px) and (max-width: 1920px) {
+      width: 93% !important;
       max-width: 1765px;
     }
   }

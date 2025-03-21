@@ -1,2 +1,3 @@
-@import './variable';
-@import './reset.scss';
+@forward './variable';
+@use './variable' as *;
+@use './reset.scss' as *;
