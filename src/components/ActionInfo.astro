@@ -16,7 +16,7 @@
       data-aos="fade-up"
       data-aos-duration="1200">
       <h4>集合地點</h4>
-      <p>茄萣濕地遊客中心（高雄市茄萣區正順北路180號）</p>
+      <p>茄萣公14入口處，步行至活動旗幟所在位置</p>
     </div>
     <div
       class="actionInfo__container-trans infos"
@@ -34,7 +34,10 @@
           <p class="method__item2-content2">約30分鐘</p>
         </div>
         <div class="method__item3">
-          <p class="method__item3-title3">茄萣濕地遊客中心</p>
+          <p class="method__item3-title3">
+            <span style="font-size: 16px;">集合地點</span>
+            <br />茄萣公14入口處
+          </p>
         </div>
       </div>
     </div>
@@ -98,14 +101,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             background: $fontColor;
             border-top-left-radius: 20px;
             @media screen and (max-width: 745px) {
               padding: 40px 10px;
             }
+            @media screen and (max-width: 350px) {
+              justify-content: center;
+              padding: 20px 3px;
+            }
             &-title1 {
               font-size: 16px;
-              margin-bottom: 12px;
               color: $whiteColor;
             }
             &-content1 {
@@ -113,6 +120,9 @@
               color: $whiteColor !important;
               @media screen and (max-width: 480px) {
                 font-size: 18px !important;
+              }
+              @media screen and (max-width: 445px) {
+                font-size: 16px !important;
               }
             }
           }
@@ -125,11 +135,15 @@
             @media screen and (max-width: 850px) {
               padding: 40px 30px;
             }
-            @media screen and (max-width: 375px) {
-              padding: 40px 15px;
+            @media screen and (max-width: 460px) {
+              padding: 40px 10px;
             }
-            @media screen and (max-width: 340px) {
+            @media screen and (max-width: 375px) {
               padding: 40px 5px;
+            }
+            @media screen and (max-width: 350px) {
+              padding: 20px 3px;
+              justify-content: center;
             }
             &::before {
               position: absolute;
@@ -147,12 +161,18 @@
               @media screen and (max-width: 480px) {
                 font-size: 18px !important;
               }
+              @media screen and (max-width: 445px) {
+                font-size: 16px !important;
+              }
             }
             &-content2 {
               font-size: 20px;
               margin-top: 4px;
               @media screen and (max-width: 480px) {
                 font-size: 18px !important;
+              }
+              @media screen and (max-width: 445px) {
+                font-size: 16px !important;
               }
             }
           }
@@ -168,24 +188,30 @@
               padding: 40px 10px;
             }
             @media screen and (max-width: 445px) {
-              width: 164px;
+              max-width: 204px;
             }
-            @media screen and (max-width: 436px) {
-              width: 144px;
+            @media screen and (max-width: 350px) {
+              justify-content: center;
+              padding: 20px 3px;
             }
-            @media screen and (max-width: 416px) {
-              width: 124px;
-            }
-            @media screen and (max-width: 397px) {
-              width: 94px;
-            }
+            // @media screen and (max-width: 436px) {
+            //   width: 144px;
+            // }
+            // @media screen and (max-width: 416px) {
+            //   width: 124px;
+            // }
+            // @media screen and (max-width: 397px) {
+            //   width: 94px;
+            // }
             &-title3 {
               font-size: 20px;
+              text-align: center;
               @media screen and (max-width: 480px) {
                 font-size: 18px !important;
               }
               @media screen and (max-width: 445px) {
                 text-align: center;
+                font-size: 16px !important;
               }
             }
           }

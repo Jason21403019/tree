@@ -4,9 +4,10 @@ interface Props {
   target: number
   duration: number
   decimals?: number
+  suffix?: string
 }
 
-const { target, duration = 2000, decimals = 1 } = Astro.props
+const { target, duration = 2000, decimals = 1, suffix = '' } = Astro.props
 ---
 
 <div class="counter-container">
@@ -14,7 +15,8 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
     class="counter"
     data-target={target}
     data-duration={duration}
-    data-decimals={decimals}>0</span
+    data-decimals={decimals}
+    data-suffix={suffix}>0</span
   >
 </div>
 
@@ -52,13 +54,14 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
     observer: IntersectionObserver
     animationId: number | null = null
     isAnimating = false
-    hasAnimated = false // 新增標記以追蹤動畫是否已執行
+    hasAnimated = false
 
     constructor(element: HTMLElement) {
       this.element = element
       this.target = Number(element.dataset.target || 0)
       this.duration = Number(element.dataset.duration || 1500)
       this.decimals = Number(element.dataset.decimals || 0)
+      this.suffix = element.dataset.suffix || ''
 
       this.observer = new IntersectionObserver(
         this.handleIntersection.bind(this),
@@ -113,7 +116,8 @@ const { target, duration = 2000, decimals = 1 } = Astro.props
       }
     }
     updateDisplay(): void {
-      this.element.textContent = this.current.toFixed(this.decimals)
+      this.element.textContent =
+        this.current.toFixed(this.decimals) + this.suffix
     }
   }
 
