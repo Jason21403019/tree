@@ -52,7 +52,7 @@
           去享受運動，讓運動變成常態。每天走路7000步，達到健康促進的效果，再走更多便能享受體能進步的成效。
         </p>
         <p class="doctor__card2-name">
-          臺灣健身運動醫學推廣協會<br />理事長 ︱ 陳俊忠
+          臺灣健身運動醫學推廣協會<br class="doctor_br" />理事長 ︱ 陳俊忠
         </p>
       </div>
     </div>
@@ -73,17 +73,11 @@
       justify-content: space-between;
       align-items: stretch;
       gap: 30px;
-      @media screen and (max-width: 1540px) {
-        padding: 66px 135px;
+      @media screen and (max-width: 1600px) {
+        padding: 66px 55px;
         gap: 20px;
       }
-      @media screen and (max-width: 1484px) {
-        padding: 66px 95px;
-      }
-      @media screen and (max-width: 1440px) {
-        padding: 66px 55px;
-      }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1366px) {
         padding: 32px 24px;
       }
       @media screen and (max-width: 640px) {
@@ -96,9 +90,11 @@
         background-color: $mainColor;
         border-top-left-radius: 100px;
         box-shadow: 4px 4px 1px rgba(0, 0, 0, 1);
+        @media screen and (max-width: 1054px) {
+          padding: 20px;
+        }
         @media screen and (max-width: 1024px) {
           flex-direction: column;
-          padding: 18px;
         }
       }
     }
@@ -138,6 +134,11 @@
         @media screen and (max-width: 1280px) {
           font-size: 18px;
         }
+        .doctor_br {
+          @media screen and (min-width: 1025px) and (max-width: 1126px) {
+            display: none;
+          }
+        }
       }
       &-img {
         margin-right: 30px;
@@ -148,6 +149,9 @@
         min-height: 379px;
         height: auto;
         border-top-left-radius: 70px;
+        @media screen and (max-width: 1366px) {
+          margin-right: 15px;
+        }
         @media screen and (max-width: 1024px) {
           margin-right: 0px;
           width: 100%;
