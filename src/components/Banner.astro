@@ -83,6 +83,9 @@
     align-items: center;
     position: relative;
     aspect-ratio: 16 / 9;
+    @media screen and (max-width: 460px) {
+      aspect-ratio: 16 / 9;
+    }
   }
   .banner__animation {
     position: absolute;
@@ -101,6 +104,7 @@
     justify-content: flex-start;
     align-items: center;
     width: fit-content;
+    z-index: 2;
     @media screen and (max-width: 1600px) {
       left: 10%;
     }
@@ -121,7 +125,6 @@
     }
     @media screen and (max-width: 460px) {
       top: 54%;
-      // transform: translate(-20%, -140%);
     }
     @media screen and (max-width: 360px) {
       top: 56%;
